@@ -1,0 +1,61 @@
+.sidebar {
+	min-height: 100vh;
+	background-color: #343a40;
+	color: white;
+	padding-top: 20px;
+}
+.nav-link {
+	color: rgba(255, 255, 255, 0.75);
+	padding: 8px 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.nav-link:hover {
+	color: white;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+.nav-item {
+	margin: 2px 0;
+}
+.submenu {
+	margin-left: 20px;
+	border-left: 1px solid #495057;
+	padding-left: 5px;
+}
+.icon-space {
+	width: 25px;
+	display: inline-block;
+	text-align: center;
+	margin-right: 8px;
+}
+.dropdown-icon {
+	font-size: 0.7rem;
+	transition: transform 0.3s;
+}
+.dropdown-toggle[aria-expanded="true"] .dropdown-icon {
+	transform: rotate(180deg);
+}
+.content {
+	padding: 20px;
+}
+.active {
+	background-color: #007bff;
+	color: white !important;
+}
+.nav-link.dropdown-toggle {
+	cursor: pointer;
+}
+
+/* Menu item với children */
+a.nav-link.dropdown-toggle {
+	position: relative;
+}
+
+/* Hiển thị hover dạng block cho các menu item */
+.nav-item a.nav-link {
+	width: 100%;
+}
+.dropdown-toggle::after {
+	display: none;
+}

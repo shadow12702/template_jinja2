@@ -1,0 +1,29 @@
+{% macro render_menu(menu, parent_name="") %}
+    <ul class="nav flex-column {% if parent_name %}submenu collapse{% else %}nav-main{% endif %}" 
+        {% if parent_name %}id="submenu-{{ parent_name|replace(' ', '-')|lower }}"{% endif %}>
+        {% for item in menu if item.parent == parent_name %}
+            <li class="nav-item">
+                {% if item.name in menu | map(attribute='parent') %}
+                    <a class="nav-link dropdown-toggle" href="{{ item.link }}" 
+                       data-bs-toggle="collapse" 
+                       data-bs-target="#submenu-{{ item.name|replace(' ', '-')|lower }}" 
+                       aria-expanded="false">
+                        {% if item.icon %}
+                            <span class="icon-space"><i class="{{ item.icon }}"></i></span>
+                        {% endif %}
+                        {{ item.name }}
+                        <i class="dropdown-icon fa fa-chevron-down"></i>
+                    </a>
+                    {{ render_menu(menu, item.name) }}  {# Gọi đệ quy để hiển thị menu con #}
+                {% else %}
+                    <a class="nav-link" href="{{ item.link }}">
+                        {% if item.icon %}
+                            <span class="icon-space"><i class="{{ item.icon }}"></i></span>
+                        {% endif %}
+                        {{ item.name }}
+                    </a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}

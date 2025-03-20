@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Menu Phân Cấp</title>
+    {% include "library_css.html" %}
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Menu -->
+            <div class="col-md-3 col-lg-2 sidebar">
+                <h4 class="text-center mb-4">Demo Menu</h4>
+                
+                {% import 'macros.html' as macros %}
+                {{ macros.render_menu(menu) }}
+            </div>
+            
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 content">
+                <h2>Demo Menu Phân Cấp với Dropdown</h2>
+                <p>Đây là ví dụ về cách xây dựng menu phân cấp dạng dropdown.</p>
+                <div class="alert alert-info mt-3">
+                    <strong>Chú ý:</strong> Menu cha sẽ có biểu tượng mũi tên và có thể mở/đóng submenu khi nhấp vào.
+                </div>
+                <div class="card mt-4">
+                    <div class="card-header">
+                        Hướng dẫn sử dụng
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Các menu cha (có menu con) được hiển thị với biểu tượng mũi tên</li>
+                            <li>Nhấp vào menu cha để mở/đóng submenu</li>
+                            <li>Menu con được ẩn đi mặc định</li>
+                            <li>Menu được tự động highlight dựa vào URL hiện tại</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "library_js.html" %}
+</body>
+</html>
